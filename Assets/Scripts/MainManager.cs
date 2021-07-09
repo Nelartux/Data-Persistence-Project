@@ -13,6 +13,7 @@ public class MainManager : MonoBehaviour
     public Text ScoreText;
     public Text hSText;
     public GameObject GameOverText;
+    private int replaceCounter;
     
     private bool m_Started = false;
     private int m_Points;
@@ -79,6 +80,15 @@ public class MainManager : MonoBehaviour
         
         if (m_Points > hScore)
         {
+            MainMenuManager.instance.currentHScore4 = MainMenuManager.instance.currentHScore3;
+            MainMenuManager.instance.hScoreName4 = MainMenuManager.instance.hScoreName3;
+            MainMenuManager.instance.currentHScore3 = MainMenuManager.instance.currentHScore2;
+            MainMenuManager.instance.hScoreName3 = MainMenuManager.instance.hScoreName2;
+            MainMenuManager.instance.currentHScore2 = MainMenuManager.instance.currentHScore1;
+            MainMenuManager.instance.hScoreName2 = MainMenuManager.instance.hScoreName1;
+            MainMenuManager.instance.currentHScore1 = MainMenuManager.instance.currentHScore;
+            MainMenuManager.instance.hScoreName1 = MainMenuManager.instance.hScoreName;
+
             hScore = m_Points;
             MainMenuManager.instance.StoreHS(hScore);
             hSText.text = "HighScore: " + MainMenuManager.instance.playerName + " - " + MainMenuManager.instance.currentHScore;

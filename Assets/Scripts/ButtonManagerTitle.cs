@@ -25,7 +25,12 @@ public class ButtonManagerTitle : MonoBehaviour
     {
         SceneManager.LoadScene("main");
     }
-    //Move to Highscore
+    //Reset Highscore
+    public void ResetHS()
+    {
+        MainMenuManager.instance.ResetSave();
+        MainMenuManager.instance.LoadHS();
+    }
 
     //Exit the game
     public void ExitGame()
